@@ -1,5 +1,4 @@
-# FUSE
-FUSE: Fast Unified Simulation and Estimation for PDEs
+# FUSE: Fast Unified Simulation and Estimation for PDEs
 
 The paper is freely available [here](https://arxiv.org/pdf/2405.14558).
 
@@ -7,11 +6,25 @@ The joint prediction of continuous fields and statistical estimation of the unde
 
 ![](FUSE_diagram.png)
 
-The goal of supervised operator learning is to learn a parameterized family of *neural operators* $$\tilde{\mathcal{G}}^{\theta}$$ by minimizing $$d (\tilde{\mathcal{G}}^{\theta}_{\# \mu^*}, \tilde{\mathcal{G}}_{\# \mu^*})$$, with $$d$$ being a suitable distance (metric) between the underlying pushforward measures. However, in practice, we do not have access to a closed form for $$\mu^*$$ but rather a small number of samples from it, so in reality, we end up minimizing $$d (\tilde{\mathcal{G}}^{\theta}_{\# \mu}, \tilde{\mathcal{G}}_{\# \mu^*})$$, where $$\mu$$ is an approximation of $$\mu^*$$, for instance obtained by finite sampling. 
 
-As $$d$$ is a metric on measures, we use triangle inequality to observe that 
-$
-    d ( \tilde{\mathcal{G}}^{\theta}_{\# \mu}, \tilde{\mathcal{G}}_{\# \mu^*}) \leq \underbrace{ d ( \tilde{\mathcal{G}}^{\theta}_{\# \mu}, \tilde{\mathcal{G}}^{\theta}_{\# \mu^*})}_{\text{Measure matching}} +  \underbrace{d ( \tilde{\mathcal{G}}^{\theta}_{\# \mu^*}, \tilde{\mathcal{G}}_{\# \mu^*})}_{\text{Operator learning}}.
-$
+The goal of supervised operator learning is to learn a parameterized family of *neural operators* $`\tilde{\mathcal{G}}^{\theta}`$ by minimizing $`d(\tilde{\mathcal{G}}^{\theta}_{\#\mu^*},\tilde{\mathcal{G}}_{\#\mu^*})`$, with $d$ being a suitable distance (metric) between the underlying pushforward measures. However, in practice, we do not have access to a closed form for $`\mu^*`$ but rather a small number of samples from it, so in reality, we end up minimizing $`d (\tilde{\mathcal{G}}^{\theta}_{\# \mu}, \tilde{\mathcal{G}}_{\# \mu^*})`$, where $\mu$ is an approximation of $`\mu^*`$, for instance obtained by finite sampling. 
+
+As $d$ is a metric on measures, we may use the triangle inequality to observe that 
+
+$`d(\tilde{\mathcal{G}}^{\theta}_{\#\mu},\tilde{\mathcal{G}}_{\#\mu^*})\leq \underbrace{d(\tilde{\mathcal{G}}^{\theta}_{\#\mu},\tilde{\mathcal{G}}^{\theta}_{\#\mu^*})}_{\text{Measure matching}}+ \underbrace{d ( \tilde{\mathcal{G}}^{\theta}_{\# \mu^*}, \tilde{\mathcal{G}}_{\# \mu^*})}_{\text{Operator learning}}.`$
+
 In other words, the operator learning objective can be split into two separate objectives. As we show in our work, these two separate objectives can be applied to learn inverse and forward problems using two distinct model components. Subsequently, we can \it{fuse} these two components together at inference time to emulate a forward problem, based on the posterior distributions of parameters obtained from solving the associated inverse problem. This leads the way to understanding uncertainties in infinite-dimensional spaces via their relationship with finite-dimensional parameters which are human-interpretable. 
 
+**Network Structure, Training, and Evaluation**
+
+The forward and inverse problems are each solved under the same principles. Each problem necessitates learning a relationship between a finite-dimensional and infinite-dimensional space. For the purpose of learning infinite-dimensional spaces, neural operators are a clear choice. In this work, we choose to instantiate this operator learning component of our model with the *Fourier Neural Operator*, although any reasonably suitable neural operator would work. In order to bridge the gap between finite- and infinite-dimensional spaces, we rely on the space of band-limited functions. For this purpose, a constant set of low-frequency modes of a standard Fourier transform is used. The coefficients of the discrete Fourier transform are finite-dimensional scalars which each correspond to a function, offering a pathway to learn the relationship between finite-dimensional PDE parameters and their infinite-dimensional functions. In order to learn a probabilistic estimate of the inverse problem, we use a coniditional generative model for inference. We find the best performance with *Flow Matching Posterior Estimation*, but we also investigate conditional denoising diffusion probabilistic models. In the case of the forward problem, we learn a deterministic lifting operator, increasing the dimensionality of the low-dimensional parameter space to the space of band-limited Fourier coefficients, which will subsequently be passed to the neural operator. 
+
+The training process for the forward and inverse problem may be performed separately. Given access to continuous inputs $u$, continuous outputs $s$, and finite-dimensional system parameters $\xi$, the forward model is trained by minimizing an $L^1$ loss ($\mathcal{L}_1$) while the inverse model is trained by minimizing the flow matching objective ($\mathcal{L}_2$),
+
+$`\mathcal{L}_1(\theta, \xi, s) =   \int_{\Xi} \| \mathcal{G}(\xi) - \mathcal{G}^{\theta}(\xi)\|_{L^1(\mathcal{Y})} d \rho^*(\xi),`$
+
+$`\mathcal{L}_2(\phi, u, \xi) = \mathbb{E}_{t\sim p(t), \xi_1 \sim \rho^*(\xi | u), \hat{u} \sim p(\hat{u}|\xi_1), \xi_t \sim p_t(\xi_t| \xi_1)}||v^{\phi_1}_{t, \hat{u}}(\xi_t) - l_t(\xi_t|\xi_1)||_2^2.`$
+
+For the sake of brevity, we refer the interested reader to the [paper](https://arxiv.org/pdf/2405.14558) for more details on these loss objectives.
+
+At evaluation time, we can choose to evaluate both the forward and inverse problem, using the pushforward of the propagated uncertainty from the inverse problem to quantify the uncertainty in the continuous outputs. 
