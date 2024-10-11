@@ -28,3 +28,7 @@ $`\mathcal{L}_2(\phi, u, \xi) = \mathbb{E}_{t\sim p(t), \xi_1 \sim \rho^*(\xi | 
 For the sake of brevity, we refer the interested reader to the [paper](https://arxiv.org/pdf/2405.14558) for more details on these loss objectives.
 
 At evaluation time, we can choose to evaluate both the forward and inverse problem, using the pushforward of the propagated uncertainty from the inverse problem to quantify the uncertainty in the continuous outputs. 
+
+
+![](w_$x_r$.gif)
+
