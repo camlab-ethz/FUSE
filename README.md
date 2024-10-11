@@ -30,5 +30,13 @@ For the sake of brevity, we refer the interested reader to the [paper](https://a
 At evaluation time, we can choose to evaluate both the forward and inverse problem, using the pushforward of the propagated uncertainty from the inverse problem to quantify the uncertainty in the continuous outputs. 
 
 
-![](w_$x_r$.gif)
+Here are some examples of the animations:
+
+| Horizontal Velocity, u  | Vertical Velocity, w  |
+|:-------------:|:-------------:|
+| ![Animation 1](u_$x_r$.gif) | ![Animation 2](w_$x_r$.gif) |
+| ![Animation 1](u_amplitude.gif) | ![Animation 2](w_amplitude.gif) |
+
+## Conclusion
+
 
