@@ -34,7 +34,7 @@ Here are some examples of the animations:
 
 | Horizontal Velocity, u  | Vertical Velocity, w  |
 |:-------------:|:-------------:|
-| ![Animation 1](images/u_$x_r$.gif) | ![Animation 2](images/w_$x_r$.gif) |
+| ![Animation 1](images/u_zr.gif) | ![Animation 2](images/w_zr.gif) |
 | ![Animation 1](images/u_amplitude.gif) | ![Animation 2](images/w_amplitude.gif) |
 
 ## Conclusion
