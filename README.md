@@ -30,15 +30,29 @@ For the sake of brevity, we refer the interested reader to the [paper](https://a
 At evaluation time, we can choose to evaluate both the forward and inverse problem, using the pushforward of the propagated uncertainty from the inverse problem to quantify the uncertainty in the continuous outputs. Alternatively, we could choose to evaluate only the forward model if the systems parameters are known. Likewise, we can vary these parameters in order to explore their effect on the continuous outputs, a process known as *fingerprinting*.
 
 **Results from the Atmospheric Cold Bubble Experiment**
+The atmospheric cold bubble (ACB) experiment aims to learn the relationship between velocity measurements and the initial and system conditions. Velocities are measured at point locations, also known as turbulence towers, depicted by black triangles. The ACB has initial parameters height $z_c$, vertical radius $z_r$, horizontal radius $x_r$, amplitude (temperature difference), and it is also affected by the viscosity and diffusivity of the atmosphere. 
+
 ***Combined Forward and Inverse Problem***
+The inverse problem is solved to uncover the posterior distribution of these parameters. Samples are then passed through the forward model to calculate an ensemble of predictions for the velocity at a given location. 
+<div align="center">
+  <img src="images/input.png" alt="Input" height="150" style="position: relative; bottom: 50px;"/>
+  <img src="images/nn.svg" alt="Inverse Process" height="150" style="position: relative; bottom: 50px;"/>
+  <img src="images/histogram.gif" alt="Inverse Process" height="250"/>
+  <img src="images/nn.svg" alt="Forward Process" height="150" style="transform: rotate(180deg); position: relative; bottom: 50px;"/>
+  <img src="images/outputs_u.gif" alt="Prediction" height="250"/> 
+</div>
 
 ***Fingerprinting***
+Sweeping through different parameters uncovers the effects they may have. 
 
-| Horizontal Velocity, u  | Vertical Velocity, w  |
-|:-------------:|:-------------:|
-| ![Animation 1](images/u_zc.gif) | ![Animation 2](images/w_zc.gif) |
-| ![Animation 1](images/u_amplitude.gif) | ![Animation 2](images/w_amplitude.gif) |
-
-## Conclusion
-
+<table align="center">
+  <tr>
+    <td><img src="images/u_zc.gif" alt="Input" height="300"></td>
+    <td><img src="images/w_zc.gif" alt="NN Process" height="300"></td>
+  </tr>
+  <tr>
+    <td><img src="images/u_amplitude.gif" alt="Inverse Process" height="300"></td>
+    <td><img src="images/w_amplitude.gif" alt="Prediction" height="300"></td>
+  </tr>
+</table>
 
