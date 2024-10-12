@@ -35,8 +35,6 @@ The atmospheric cold bubble (ACB) experiment aims to learn the relationship betw
 ***Combined Forward and Inverse Problem***
 The inverse problem is solved to uncover the posterior distribution of these parameters. Samples are then passed through the forward model to calculate an ensemble of predictions for the velocity at a given location. 
 <div align="center">
-  <img src="images/input.png" alt="Input" height="150" style="position: relative; bottom: 50px;"/>
-  <img src="images/nn.svg" alt="Inverse Process" height="150" style="position: relative; bottom: 50px;"/>
   <img src="images/combined_interesting.gif" alt="Inverse Process" height="250"/>
 
 </div>
