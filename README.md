@@ -27,10 +27,12 @@ $`\mathcal{L}_2(\phi, u, \xi) = \mathbb{E}_{t\sim p(t), \xi_1 \sim \rho^*(\xi | 
 
 For the sake of brevity, we refer the interested reader to the [paper](https://arxiv.org/pdf/2405.14558) for more details on these loss objectives.
 
-At evaluation time, we can choose to evaluate both the forward and inverse problem, using the pushforward of the propagated uncertainty from the inverse problem to quantify the uncertainty in the continuous outputs. 
+At evaluation time, we can choose to evaluate both the forward and inverse problem, using the pushforward of the propagated uncertainty from the inverse problem to quantify the uncertainty in the continuous outputs. Alternatively, we could choose to evaluate only the forward model if the systems parameters are known. Likewise, we can vary these parameters in order to explore their effect on the continuous outputs, a process known as *fingerprinting*.
 
+**Results from the Atmospheric Cold Bubble Experiment**
+***Combined Forward and Inverse Problem***
 
-Here are some examples of the animations:
+***Fingerprinting***
 
 | Horizontal Velocity, u  | Vertical Velocity, w  |
 |:-------------:|:-------------:|
