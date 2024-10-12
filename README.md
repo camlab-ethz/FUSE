@@ -2,6 +2,9 @@
 
 The paper is freely available [here](https://arxiv.org/pdf/2405.14558).
 
+![](images/combined_median.gif)
+
+
 The joint prediction of continuous fields and statistical estimation of the underlying discrete parameters is a common problem for many physical systems, governed by PDEs. Until now, these two problems were often tackled separately. In this work, we show that by incorporating underlying discrete parameters into the prediction of continuous fields, it is possible to improve the accuracy and robustness of the neural operator. Moreover, it adds a level of *interpretability*, surpassing the blackbox paradigm of previous neural operator approaches and allowing for human understanding of complex systems. We present the capabilities of the proposed methodology for predicting continuous and discrete biomarkers in full-body haemodynamics simulations under different levels of missing information. We also consider a test case for atmospheric large-eddy simulation of a two-dimensional dry cold bubble, where we infer both continuous time-series and information about the systems conditions. We present comparisons against different baselines to showcase significantly increased accuracy in both the inverse and the surrogate tasks.
 
 ![](images/FUSE_diagram.png)
@@ -30,16 +33,15 @@ For the sake of brevity, we refer the interested reader to the [paper](https://a
 At evaluation time, we can choose to evaluate both the forward and inverse problem, using the pushforward of the propagated uncertainty from the inverse problem to quantify the uncertainty in the continuous outputs. Alternatively, we could choose to evaluate only the forward model if the systems parameters are known. Likewise, we can vary these parameters in order to explore their effect on the continuous outputs, a process known as *fingerprinting*.
 
 **Results from the Atmospheric Cold Bubble Experiment**
+
 The atmospheric cold bubble (ACB) experiment aims to learn the relationship between velocity measurements and the initial and system conditions. Velocities are measured at point locations, also known as turbulence towers, depicted by black triangles. The ACB has initial parameters height $z_c$, vertical radius $z_r$, horizontal radius $x_r$, amplitude (temperature difference), and it is also affected by the viscosity and diffusivity of the atmosphere. 
 
-***Combined Forward and Inverse Problem***
+*Combined Forward and Inverse Problem:*
 The inverse problem is solved to uncover the posterior distribution of these parameters. Samples are then passed through the forward model to calculate an ensemble of predictions for the velocity at a given location. 
-<div align="center">
-  <img src="images/combined_interesting.gif" alt="Inverse Process" height="250"/>
 
-</div>
+![](images/combined_interesting.gif)
 
-***Fingerprinting***
+*Fingerprinting:*
 Sweeping through different parameters uncovers the effects they may have. 
 
 <table align="center">
