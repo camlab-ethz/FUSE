@@ -37,9 +37,8 @@ The inverse problem is solved to uncover the posterior distribution of these par
 <div align="center">
   <img src="images/input.png" alt="Input" height="150" style="position: relative; bottom: 50px;"/>
   <img src="images/nn.svg" alt="Inverse Process" height="150" style="position: relative; bottom: 50px;"/>
-  <img src="images/histogram.gif" alt="Inverse Process" height="250"/>
-  <img src="images/nn.svg" alt="Forward Process" height="150" style="transform: rotate(180deg); position: relative; bottom: 50px;"/>
-  <img src="images/outputs_u.gif" alt="Prediction" height="250"/> 
+  <img src="images/combined_interesting.gif" alt="Inverse Process" height="250"/>
+
 </div>
 
 ***Fingerprinting***
@@ -47,12 +46,12 @@ Sweeping through different parameters uncovers the effects they may have.
 
 <table align="center">
   <tr>
-    <td><img src="images/u_zc.gif" alt="Input" height="300"></td>
-    <td><img src="images/w_zc.gif" alt="NN Process" height="300"></td>
+    <td><img src="images/u_zc.gif" alt="u zc" height="300"></td>
+    <td><img src="images/w_zc.gif" alt="w zc" height="300"></td>
   </tr>
   <tr>
-    <td><img src="images/u_amplitude.gif" alt="Inverse Process" height="300"></td>
-    <td><img src="images/w_amplitude.gif" alt="Prediction" height="300"></td>
+    <td><img src="images/u_amplitude.gif" alt="u amp" height="300"></td>
+    <td><img src="images/w_amplitude.gif" alt="w amp" height="300"></td>
   </tr>
 </table>
 
