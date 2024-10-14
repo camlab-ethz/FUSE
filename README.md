@@ -32,13 +32,22 @@ At evaluation time, we can choose to evaluate both the forward and inverse probl
 
 **Results from the Atmospheric Cold Bubble Experiment**
 
-The atmospheric cold bubble (ACB) experiment aims to learn the relationship between velocity measurements and the initial and system conditions. Velocities are measured at point locations, resembling measurements taken by turbulence towers, depicted by black triangles. The initial condition of the ACB is parameterized by height $z_c$, vertical radius $z_r$, horizontal radius $x_r$, and amplitude of the temperature anomaly, and it is also affected by the sub-grid scale viscosity and diffusivity as model parameters of the large-eddy simulation. 
+The atmospheric cold bubble (ACB) experiment aims to learn the relationship between velocity measurements and the initial and system conditions. Velocities are measured at point locations, resembling measurements taken by turbulence towers. The initial condition of the ACB is parameterized by height $z_c$, vertical radius $z_r$, horizontal radius $x_r$, and amplitude of the temperature anomaly, and it is also affected by the sub-grid scale viscosity and diffusivity as model parameters of the large-eddy simulation. 
+
+<table align="center">
+  <tr>
+    <td><img src="images/ACB_default_temperature_anomaly.gif" alt="default temperature anomaly field" ></td>
+    <td><img src="images/ACB_default_u.gif" alt="default u field" ></td>
+    <td><img src="images/ACB_default_w.gif" alt="default w field" ></td>
+  </tr>
+</table>
+
+*The cold bubble test case:* Time evolution of velocities and the temperature anomaly. The triangles mark the measurement locations where the time series measurements $u$ are taken.
 
 ![](images/combined_interesting.gif)
 
-
 *Combined Forward and Inverse Problem:*
-Given one set of continuous measurements $u$, the inverse problem is solved to uncover the posterior distribution of the parameters $\xi$. Samples are then passed through the forward model to calculate an ensemble of predictions for the velocity $s$ at a given location.
+Given one set of continuous measurements $u$ from the testing dataset, the inverse problem is solved to uncover the posterior distribution of the parameters $\xi$. Samples are then passed through the forward model to calculate an ensemble of predictions for the velocity $s$ at a given location.
 
 <table align="center">
   <tr>
