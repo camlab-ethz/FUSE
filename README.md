@@ -44,7 +44,7 @@ The atmospheric cold bubble (ACB) experiment aims to learn the relationship betw
 
 *The cold bubble test case:* Time evolution of velocities and the temperature anomaly. The triangles mark the measurement locations where the time series measurements $u$ are taken.
 
-![](images/combined_interesting.gif)
+![](images/default_combined.gif)
 
 *Combined Forward and Inverse Problem:*
 Given one set of continuous measurements $u$ from the testing dataset, the inverse problem is solved to uncover the posterior distribution of the parameters $\xi$. Samples are then passed through the forward model to calculate an ensemble of predictions for the velocity $s$ at a given location.
