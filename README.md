@@ -42,7 +42,7 @@ The atmospheric cold bubble (ACB) experiment aims to learn the relationship betw
   </tr>
 </table>
 
-*The cold bubble test case:* Time evolution of velocities and the temperature anomaly. The triangles mark the measurement locations where the time series measurements $u$ are taken.
+*The cold bubble test case:* Time evolution of velocities and the temperature anomaly. The triangles mark the measurement locations where the time series measurements $u$ (horizontal velocity) and $w$ (vertical velocity) are taken.
 
 ![](images/default_combined.gif)
 
