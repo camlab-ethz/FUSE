@@ -36,9 +36,9 @@ The atmospheric cold bubble (ACB) experiment aims to learn the relationship betw
 
 <table align="center">
   <tr>
-    <td><img src="images/ACB_default_temperature_anomaly.gif" alt="default temperature anomaly field" ></td>
-    <td><img src="images/ACB_default_u.gif" alt="default u field" ></td>
-    <td><img src="images/ACB_default_w.gif" alt="default w field" ></td>
+    <td><img src="images/ACB_default_temperature_anomaly.gif" alt="default temperature anomaly field" loop="infinite" ></td>
+    <td><img src="images/ACB_default_u.gif" alt="default u field" loop="infinite"></td>
+    <td><img src="images/ACB_default_w.gif" alt="default w field" loop="infinite"></td>
   </tr>
 </table>
 
