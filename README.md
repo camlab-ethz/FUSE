@@ -67,20 +67,24 @@ Sweeping through different parameters uncovers their effects on the continuous o
 **Cite As**
 
 Lingsch, L. E., D. Grund, S. Mishra, and G. Kissas (2024). *FUSE: Fast Unified Simulation and Estimation for PDEs*. doi: 10.48550/arXiv.2405.1455
+### Citation
 
-> @misc{lingsch2024, \
->>  title = {{FUSE}: Fast Unified Simulation and Estimation for {PDEs}}, \
-  	rights = {All rights reserved}, \
-	  url = {http://arxiv.org/abs/2405.14558}, \
-	  doi = {10.48550/arXiv.2405.14558}, \
-  	shorttitle = {{FUSE}}, \
-  	number = {{arXiv}:2405.14558}, \
-  	publisher = {{arXiv}}, \
-  	author = {Lingsch, Levi E. and Grund, Dana and Mishra, Siddhartha and Kissas, Georgios}, \
-  	urldate = {2024-05-23}, \
-  	date = {2024-05-23}, \
-  	eprinttype = {arxiv}, \
-  	eprint = {2405.14558 [cs]}, \
-  	keywords = {Computer Science - Machine Learning}, \
+To cite this work, please use the following BibTeX entry:
+
+```bibtex
+@misc{lingsch2024,
+  title = {{FUSE}: Fast Unified Simulation and Estimation for {PDEs}},
+  author = {Lingsch, Levi E. and Grund, Dana and Mishra, Siddhartha and Kissas, Georgios},
+  url = {http://arxiv.org/abs/2405.14558},
+  doi = {10.48550/arXiv.2405.14558},
+  shorttitle = {{FUSE}},
+  number = {{arXiv}:2405.14558},
+  publisher = {{arXiv}},
+  urldate = {2024-05-23},
+  date = {2024-05-23},
+  eprinttype = {arxiv},
+  eprint = {2405.14558 [cs]},
+  keywords = {Computer Science - Machine Learning},
 }
+
 
