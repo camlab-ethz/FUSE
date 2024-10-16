@@ -1,0 +1,50 @@
+
+parameters:
+  learning_rate:
+    value: 0.0007176
+  batch_size:
+    value: 64
+  weight_decay:
+    value: 0.00001
+  factor:
+    value: 0.901
+  patience:
+    value: 38
+  epochs:
+    value: 2001
+  data_norm:
+    "range"
+  n_train:
+    value: 8000
+  n_val:
+    value: 1000
+  n_test:
+    value: 1000
+  fmpe_layers:
+    value: 4
+  fmpe_width:
+    value: 512
+  fno_in_layers:
+    value: 2
+  fno_out_layers:
+    value: 3
+  fno_width:
+    value: 128
+  fno_modes:
+    value: 20
+  noise_variance:
+    value: 0.00
+  pad:
+    value: 30
+  save_model:
+    value: True
+  data_path:
+    "/cluster/work/math/camlab-data/FUSE/_Data/ACB/"
+    
+    
+  
+    
+# Add more parameters as needed
+metric:
+  goal: minimize
+  name: test_loss_median
