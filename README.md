@@ -63,13 +63,64 @@ Given one set of continuous measurements $u$ from the testing dataset, the inver
 *Fingerprinting:*
 Sweeping through different parameters uncovers their effects on the continuous output functions. Since each parameter value requires a full model run, fingerprinting at this detail is not feasible with the full numerical model.
 
+---
+
+**Code Structure**
+```.
+├── ACB
+│   ├── FUSE
+│   │   ├── FUSE.py
+│   │   ├── __pycache__
+│   │   ├── config.yaml
+│   │   ├── eval_fuse.py
+│   │   └── train_fuse.py
+│   ...
+├── PWP
+│   ├── FUSE
+│   │   ├── FUSE.py
+│   │   ├── __pycache__
+│   │   ├── config.yaml
+│   │   ├── eval_fuse.py
+│   │   └── train_fuse.py
+│   ...  
+├── _Models
+│   ├── ACB
+│   │   ├── FUSE_TurbTowers.pt
+│   │   ├── GAROM_TurbTowers.pt
+│   │   ├── InVAErt_TurbTowers_Decoder_model.pt
+│   │   ├── InVAErt_TurbTowers_Encoder_model.pt
+│   │   └── UNet_TurbTowers.pt
+│   └── PWP
+│       ├── FUSE_FullBody.pt
+│       ├── GAROM_FullBody.pt
+│       ├── InVAErt_Decoder_FullBody.pt
+│       ├── InVAErt_Encoder_FullBody.pt
+│       └── UNet_FullBody.pt
+├── _Data
+│   ├── ACB
+│   │   ├── continuous.pt
+│   │   ├── discrete.pt
+│   │   ├── OOD_continuous.pt
+│   │   └── OOD_discrete.pt
+│   └── PWP
+│       └── PW_input_data.npz
+```
+The directories ```PWP``` and ```ACB``` contain all the necessary files to recreate the experiments in our work. 
+FUSE and any baselines may be trained by running ```python3 train_<model>.py```. Likewise, trained models may be evaluated by running ```python3 eval_<model>.py```.
+
+
+The FMPE model employed in our FUSE code comes from the [lampe](https://github.com/probabilists/lampe) library, which can be installed with
+```
+pip install lampe
+```
+
+
+
+---
 
 **Cite As**
 
-Lingsch, L. E., D. Grund, S. Mishra, and G. Kissas (2024). *FUSE: Fast Unified Simulation and Estimation for PDEs*. doi: 10.48550/arXiv.2405.1455
-### Citation
-
-To cite this work, please use the following BibTeX entry:
+L.E. Lingsch, D. Grund, S. Mishra, and G. Kissas (2024). *FUSE: Fast Unified Simulation and Estimation for PDEs*. doi: 10.48550/arXiv.2405.1455
 
 ```bibtex
 @misc{lingsch2024,
@@ -77,14 +128,7 @@ To cite this work, please use the following BibTeX entry:
   author = {Lingsch, Levi E. and Grund, Dana and Mishra, Siddhartha and Kissas, Georgios},
   url = {http://arxiv.org/abs/2405.14558},
   doi = {10.48550/arXiv.2405.14558},
-  shorttitle = {{FUSE}},
-  number = {{arXiv}:2405.14558},
-  publisher = {{arXiv}},
-  urldate = {2024-05-23},
-  date = {2024-05-23},
-  eprinttype = {arxiv},
-  eprint = {2405.14558 [cs]},
-  keywords = {Computer Science - Machine Learning},
+  date = {2024-05-23}
 }
-
+```
 
