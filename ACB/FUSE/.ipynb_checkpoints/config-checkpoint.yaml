@@ -39,7 +39,7 @@ parameters:
   save_model:
     value: True
   data_path:
-    "/cluster/work/math/camlab-data/FUSE/_Data/ACB/"
+    "../../_Data/ACB/"
     
     
   

@@ -31,7 +31,7 @@ parameters:
   pad:
     value: 0
   data_path:
-    "/cluster/work/math/camlab-data/FUSE/_Data/ACB/"
+    "../../_Data/ACB/"
     
     
   

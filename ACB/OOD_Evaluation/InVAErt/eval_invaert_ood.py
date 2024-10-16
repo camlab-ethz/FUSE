@@ -28,8 +28,8 @@ torch.manual_seed(seed)
 
 def main():
     pad = 30
-    n_test = 100
-    path  = '/cluster/work/math/camlab-data/FUSE/_Data/ACB/'
+    n_test = 100    
+    path  = "../../_Data/ACB/"
     # Load the data from the configs
     loader = LoadTurbTowers()
 

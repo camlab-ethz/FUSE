@@ -1,0 +1,48 @@
+
+parameters:
+  learning_rate:
+    value: 0.001253
+  lambda_k: 
+    value: 0.001
+  batch_size:
+    value: 64
+  weight_decay:
+    value: 0.00001
+  factor:
+    value: 0.833
+  patience:
+    value: 32
+  regular:
+    value: 0.5
+  epochs:
+    value: 2001
+  data_norm:
+    "max"
+  n_train:
+    value: 4000
+  n_val:
+    value: 128
+  n_test:
+    value: 128
+  params: "full" # can be 'full' or 'subset'
+  noise_dim:
+    value: 1024
+  encoding_dim:
+    value: 1024
+  print:
+    value: True
+  print_every:
+    value: 1
+  plot:
+    value: False
+  save_model:
+    value: False
+  
+    
+    
+  
+    
+# Add more parameters as needed
+metric:
+  goal: minimize
+  name: test_loss_median

@@ -1,0 +1,45 @@
+
+parameters:
+  learning_rate:
+    value: 0.0008756197314634314
+  batch_size:
+    value: 64
+  weight_decay:
+    value: 0
+  factor:
+    value: 0.6155418622279132
+  patience:
+    value: 50
+  epochs:
+    value: 2000
+  data_norm:
+    "max"
+  n_train:
+    value: 4000
+  n_val:
+    value: 128
+  n_test:
+    value: 128
+  params: "full" # can be 'full' or 'subset'
+  fmpe_layers:
+    value: 3
+  fmpe_width:
+    value: 1024
+  fno_in_layers:
+    value: 3
+  fno_out_layers:
+    value: 4
+  fno_width:
+    value: 128
+  fno_modes:
+    value: 12
+  save_model:
+    value: False
+    
+    
+  
+    
+# Add more parameters as needed
+metric:
+  goal: minimize
+  name: test_loss_median

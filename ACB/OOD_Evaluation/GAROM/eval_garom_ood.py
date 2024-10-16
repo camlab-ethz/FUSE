@@ -76,7 +76,7 @@ def eval_test_cases(model, test_loader, device, input_mins, input_maxs, p_min, p
 def main():
     pad = 0
     n_test = 100
-    path  = '/cluster/work/math/camlab-data/FUSE/_Data/ACB/'
+    path  = "../../_Data/ACB/"
     # Load the data from the configs
     loader = LoadTurbTowers()
     

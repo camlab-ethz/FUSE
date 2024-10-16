@@ -41,8 +41,8 @@ def train(model, train_loader, test_loader, device, config, input_mins, input_ma
     n_test = config['parameters']['n_test']['value']
     train_loss_in = torch.zeros(int(np.ceil(n_train/batch_size)))
     train_loss_out = torch.zeros(int(np.ceil(n_train/batch_size)))
-    in_test_loss_medians = torch.zeros(epochs, n_test)
-    out_test_loss_medians = torch.zeros(epochs, n_test)
+    test_loss_in = torch.zeros(n_test)
+    test_loss_out = torch.zeros(n_test)
     
     # pad = config['parameters']['pad']['value']
     pad = 0
@@ -106,19 +106,19 @@ def train(model, train_loader, test_loader, device, config, input_mins, input_ma
                 pred = model.y_prediction(theta)
                 out_error = relative_l1_error(pred, y)
                 
-                in_test_loss_medians[epoch, iter] = in_loss.item()
-                out_test_loss_medians[epoch, iter] = out_error.item()
+                test_loss_in[iter] = in_loss.item()
+                test_loss_in[iter] = out_error.item()
                 iter += 1
 
             
-            scheduler.step(torch.median(in_test_loss_medians))
+            scheduler.step(torch.median(test_loss_in))
             
-            print(f'median test loss: {torch.median(in_test_loss_medians[epoch]).item():.4f} average test loss: {torch.mean(in_test_loss_medians[epoch]).item():.4f} +/- {torch.std(in_test_loss_medians[epoch]).item():.4f} ')
-            print(f'median test error: {torch.median(out_test_loss_medians[epoch]).item():.4f} average test error: {torch.mean(out_test_loss_medians[epoch]).item():.4f}% +/- {torch.std(out_test_loss_medians[epoch]).item():.4f}% ')
+            print(f'median test loss: {torch.median(test_loss_in).item():.4f} average test loss: {torch.mean(test_loss_in).item():.4f} +/- {torch.std(test_loss_in).item():.4f} ')
+            print(f'median test error: {torch.median(test_loss_out).item():.4f} average test error: {torch.mean(test_loss_out).item():.4f}% +/- {torch.std(test_loss_out).item():.4f}% ')
             print('\n')
             
                         
-        test_error = torch.mean(out_test_loss_medians[epoch]).item()
+        test_error = torch.mean(test_loss_out).item()
         if test_error < best_model:
             print('******************')
             print(f'Saving model with error: {test_error:.4f}')
