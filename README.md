@@ -116,7 +116,8 @@ pip install lampe
 
 ---
 **Data**
-A
+
+All data for the experiments is located [here](https://zenodo.org/records/13944006). Please store ```_Data``` at the location specified in the file tree, or specify a new lcoation in the code. 
 
 ---
 
