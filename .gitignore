@@ -7,6 +7,9 @@ __pycache__/
 # Ignore Python virtual environment files
 FUSE_env/
 
+# Ignore _Data folder
+_Data/
+
 # Ignore compiled Python files
 *.pyc
 *.pyo
