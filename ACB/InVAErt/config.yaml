@@ -8,6 +8,8 @@ parameters:
     value: 1000
   n_test:
     value: 1000
+  batch_size:
+    value: 64
   data_path:
     "../../_Data/ACB/"
     
