@@ -21,63 +21,11 @@ torch.manual_seed(seed)
 
 l1_loss = torch.nn.L1Loss(reduction='none')
 
-    
-# Parameter labels in the specified order
-parameters = [
-        "age [years]", # 0
-        "HR [bpm]",    # 1
-        "SV [ml]",
-        "CO [l/min]",
-        "LVET [ms]",   # 4
-        "dp/dt [mmHg/s]",
-        "PFT [ms]",
-        "RFV [ml]",
-        "SBP_a [mmHg]", # 8
-        "DBP_a [mmHg]", # 9
-        "MAP_a [mmHg]", # 10
-        "PP_a [mmHg]",
-        "SBP_b [mmHg]",
-        "DBP_b [mmHg]",
-        "MBP_b [mmHg]",
-        "PP_b [mmHg]",
-        "PP_amp [ratio]",
-        "AP [mmHg]",
-        "AIx [%]",
-        "Tr [ms]",
-        "PWV_a [m/s]",
-        "PWV_cf [m/s]",
-        "PWV_br [m/s]",
-        "PWV_fa [m/s]",
-        "dia_asca [mm]",
-        "dia_dta [mm]",
-        "dia_abda [mm]",
-        "dia_car [mm]",
-        "Len [mm]",
-        "drop_fin [mmHg]",
-        "drop_ankle [mmHg]",
-        "SVR [10^6 Pa s / m3]"
-]
-    
-
 def eval_test_cases(model, test_loader, device, p_max, p_min, param_max, param_min, point_reduction, n_test):
-    '''
-    This function will generate several plots for each test case. These are:
-    1. average C>C predictions
-    2. worst case C>C predictions
-    3. average C>D predictions for interesting parameters
-    4. worst case C>D predictions ''
-    5. average C>D predictions for all parameters
-    6. worst case C>D predictions ''
-    7. Violin plots of the error for C>D each test case
-    8. Error correlations between CRPS and L1 error
-    9. Fingerprints for several parameters: Age, PP, LVET, DBP_a, SBP_a, MAP_a 
-    '''
-    
-    # channels: ['AbdAorta' 'AntTibial' 'AorticRoot' 'Brachial' 'Carotid' 'CommonIliac'
-             # 'Digital' 'Femoral' 'IliacBif' 'Radial' 'SupMidCerebral' 'SupTemporal'
-             # 'ThorAorta']
-    evaluate_test_cases = True
-    evaluate_true_case = True
+
+    # Define which cases to investigate
+    evaluate_test_cases = True    # Using the continuous inputs to predict parameters and outputs
+    evaluate_true_case = True     # Directly predicting outputs from known parameters
 
     # 1: perfect information
     test_case_1 = torch.ones(52)
@@ -214,8 +162,7 @@ def main():
         device='cpu'
         
     # Load the model
-    # model = torch.load('../../_Models/PWP/FUSE_FullBody.pt')
-    model = torch.load('FUSE_FullBody.pt')
+    model = torch.load('../../_Models/PWP/FUSE_FullBody.pt')
     print(count_params(model))
         
     eval_test_cases(model, test_loader, device, p_max, p_min, param_max, param_min, point_reduction, n_test)

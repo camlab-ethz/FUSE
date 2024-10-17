@@ -21,7 +21,7 @@ from dataset import LoadTurbTowers
 seed = 0
 torch.manual_seed(seed)
 
-def eval_test_cases(model, test_loader, device, input_mins, input_maxs, p_min, p_max, n_points, n_test, pad):
+def eval_test_cases(model, test_loader, device, input_mins, input_maxs, p_min, p_max, n_points, n_test):
     '''
     This function will generate several plots for each test case. These are:
     1. interesting C>C predictions
@@ -95,10 +95,8 @@ def eval_test_cases(model, test_loader, device, input_mins, input_maxs, p_min, p
                     y = y.to(device)
                     
 
-                    y_pred = model.y_prediction(theta, n_points = y.shape[-1]+2*pad)
+                    y_pred = model.y_prediction(theta, n_points = y.shape[-1])
                     
-                    if pad > 0:
-                        y_pred = y_pred[:,:,pad:-pad]
 
                     y_mean = torch.mean(y_pred, 0)
                     l1_errors[iter] = relative_error(y_mean, y[0], p=1)
@@ -143,7 +141,7 @@ def main():
         
     
     # Generate the plots
-    eval_test_cases(model, test_loader, device, input_mins, input_maxs, p_min, p_max, n_points, n_test, pad)
+    eval_test_cases(model, test_loader, device, input_mins, input_maxs, p_min, p_max, n_points, n_test)
 
     
     

@@ -6,7 +6,7 @@ from utilities import range_norm, gaussian_norm, max_norm
 from torch.utils.data import DataLoader, Dataset, TensorDataset
 
 class LoadFullBody():
-    def __init__(self, data_path  = "../../_Data/ACB/PW_input_data.npz"):
+    def __init__(self, data_path  = "../../_Data/PWP/PW_input_data.npz"):
         self.data = np.load(data_path)
         self.keys = self.data.keys()
         

@@ -44,8 +44,7 @@ def train(model, train_loader, test_loader, device, config, input_mins, input_ma
     test_loss_in = torch.zeros(n_test)
     test_loss_out = torch.zeros(n_test)
     
-    # pad = config['parameters']['pad']['value']
-    pad = 0
+    save_model = config['parameters']['save_model']['value']
     best_model = 15
     
     train_loss = 0
@@ -107,7 +106,7 @@ def train(model, train_loader, test_loader, device, config, input_mins, input_ma
                 out_error = relative_l1_error(pred, y)
                 
                 test_loss_in[iter] = in_loss.item()
-                test_loss_in[iter] = out_error.item()
+                test_loss_out[iter] = out_error.item()
                 iter += 1
 
             
@@ -119,7 +118,7 @@ def train(model, train_loader, test_loader, device, config, input_mins, input_ma
             
                         
         test_error = torch.mean(test_loss_out).item()
-        if test_error < best_model:
+        if test_error < best_model and save_model:
             print('******************')
             print(f'Saving model with error: {test_error:.4f}')
             torch.save(model, 'UNet_TurbTowers.pt')
@@ -160,9 +159,6 @@ def main():
     print(count_params(model))
     model.to(device)  
 
-    noise_variance = config['parameters']['noise_variance']['value']
-    if noise_variance == 0:
-        noise_variance = None
     train(model, train_loader, val_loader, device, config, input_mins, input_maxs, p_min, p_max)
     
     

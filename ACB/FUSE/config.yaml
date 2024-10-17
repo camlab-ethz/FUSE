@@ -37,7 +37,7 @@ parameters:
   pad:
     value: 30
   save_model:
-    value: True
+    value: False
   data_path:
     "../../_Data/ACB/"
     

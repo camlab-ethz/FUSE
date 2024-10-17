@@ -4,6 +4,8 @@ parameters:
     value: 64
   epochs:
     value: 2001
+  batch_size:
+    value: 64
   data_norm:
     "max"
   n_train:
