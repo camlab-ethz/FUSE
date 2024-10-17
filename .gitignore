@@ -4,6 +4,9 @@
 # Ignore Python bytecode cache files
 __pycache__/
 
+# Ignore Python virtual environment files
+FUSE_env/
+
 # Ignore compiled Python files
 *.pyc
 *.pyo
