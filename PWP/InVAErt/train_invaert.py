@@ -39,7 +39,7 @@ def main():
     
     # Load the data from the configs
     loader = LoadFullBody()
-    train_loader, val_loader, test_loader, wv_shape, pm_shape, tg_shape, p_max, p_min, param_max, param_min = loader.get_dataloaders(n_train, n_val, n_test, batch_size, params = parameter_subset, norm=norm)
+    waveforms, parameters, input_mins, input_maxs, p_min, p_max, n_points = loader.get_datasets(n_train, n_val, n_test, batch_size)
     
     # Define the model
     n_parameters = parameters.shape[1]    

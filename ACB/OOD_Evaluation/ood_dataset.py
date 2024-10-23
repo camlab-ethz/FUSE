@@ -12,8 +12,8 @@ class LoadTurbTowers():
         # inputs are all the continuous data
         # outputs are the continuous data at the locations furthest from the bubble (10 through 20)
         # parameters come from the input file, visc, diff, amp, bubble shape
-        inputs_ = torch.load(f'{data_path}/OOD_continuous.pt')
-        parameters_ = torch.load(f'{data_path}/OOD_discrete.pt')
+        inputs_ = torch.load(f'{data_path}OOD_continuous.pt')
+        parameters_ = torch.load(f'{data_path}OOD_discrete.pt')
 
         # get the channels from the several measurement locations
         outputs = torch.zeros(n_test, 2, 10, 181)
