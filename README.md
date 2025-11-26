@@ -1,6 +1,6 @@
 # FUSE: Fast Unified Simulation and Estimation for PDEs
 
-Our preprint is freely available [here](https://arxiv.org/pdf/2405.14558).
+The paper associated with this work is published at NeurIPS 2025 and available [here](https://arxiv.org/pdf/2405.14558).
 
 The joint prediction of continuous fields and statistical estimation of the underlying discrete parameters is a common problem for many physical systems governed by PDEs. Until now, these two problems were often tackled separately, even in case the underlying parameterization is known. In this work, we show that by incorporating the discrete parameters into the prediction of continuous fields, it is possible to extend the neural operator probabilistically and represent the parametric system uncertainty. Moreover, it adds a level of *interpretability*, surpassing the black box paradigm of previous neural operator approaches and allowing for human understanding of complex systems. We present the capabilities of the proposed methodology for predicting continuous and discrete biomarkers in full-body haemodynamics simulations under different levels of missing information. In addition, we consider a test case for atmospheric large-eddy simulation of a two-dimensional dry cold bubble, where we infer both continuous time-series and information about the systems conditions. In order to showcase significantly increased accuracy in both the inverse and the surrogate tasks, the performance of FUSE is compared to several baseline models.
 
