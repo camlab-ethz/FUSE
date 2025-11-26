@@ -1,6 +1,6 @@
 # FUSE: Fast Unified Simulation and Estimation for PDEs
 
-The paper associated with this work is published at NeurIPS 2025 and available [here](https://arxiv.org/pdf/2405.14558).
+The paper associated with this work is published at NeurIPS 2024 and available [here](https://arxiv.org/pdf/2405.14558).
 
 The joint prediction of continuous fields and statistical estimation of the underlying discrete parameters is a common problem for many physical systems governed by PDEs. Until now, these two problems were often tackled separately, even in case the underlying parameterization is known. In this work, we show that by incorporating the discrete parameters into the prediction of continuous fields, it is possible to extend the neural operator probabilistically and represent the parametric system uncertainty. Moreover, it adds a level of *interpretability*, surpassing the black box paradigm of previous neural operator approaches and allowing for human understanding of complex systems. We present the capabilities of the proposed methodology for predicting continuous and discrete biomarkers in full-body haemodynamics simulations under different levels of missing information. In addition, we consider a test case for atmospheric large-eddy simulation of a two-dimensional dry cold bubble, where we infer both continuous time-series and information about the systems conditions. In order to showcase significantly increased accuracy in both the inverse and the surrogate tasks, the performance of FUSE is compared to several baseline models.
 
@@ -123,12 +123,13 @@ All data for the experiments is located [here](https://zenodo.org/records/139440
 
 **Cite As**
 
-L.E. Lingsch, D. Grund, S. Mishra, and G. Kissas (2024). *FUSE: Fast Unified Simulation and Estimation for PDEs*. doi: 10.48550/arXiv.2405.1455
+L.E. Lingsch, D. Grund, S. Mishra, and G. Kissas. *FUSE: Fast Unified Simulation and Estimation for PDEs*. The Thirty-Eighth Annual Conference on Neural Information Processing Systems, NeurIPS (2024). doi: 10.48550/arXiv.2405.1455
 
 ```bibtex
 @misc{lingsch2024,
   title = {{FUSE}: Fast Unified Simulation and Estimation for {PDEs}},
   author = {Lingsch, Levi E. and Grund, Dana and Mishra, Siddhartha and Kissas, Georgios},
+  journal = {The Thirty-Eighth Annual Conference on Neural Information Processing Systems, NeurIPS (2024)}
   url = {http://arxiv.org/abs/2405.14558},
   doi = {10.48550/arXiv.2405.14558},
   date = {2024-05-23}
